@@ -1,0 +1,103 @@
+<div id="successMessage" style="display:none"><px-alert-message type="information"  class="inner_warning" message-title="Record Created Successfully."   message="" auto-dismiss="5000" action="acknowledge" ></px-alert-message></div>
+<px-card header-text="">
+<div id="bredcumFS">
+	<p>Project Tracking</p>
+	<p>FinSum</p>
+	<div class="clear"></div>
+</div>
+<div id ="fsHeader">
+	<div class="headerFS" id="oprNumberFs">
+		<div class="headerImgFS"><img id="opprSearch"  alt = "No image here" src="images/opprSearch.png"></div>
+		<div class="headerTextFS"><p class="textFs">Opportunity Number</p>
+		<p class="headerTextboxFS"><input id="textBoxFS" class="InputtextFS " type="text" value="111222"><i class="fa fa-search" aria-hidden="true"></i></p>
+		</div><div class="clear"></div>
+	</div>
+	<div class="headerFS" id="openRecFs">
+		<div class="headerImgFS"><img id="recentFS"  alt = "No image here" src="images/recentFS.png"></div>
+		<div class="headerTextFS"><p class="textFs">Open Recent FinSum</p>
+		<p class="headerTextboxFS"><button  class="btn btn-large btn-default buttonFileOpenFs" ng-click = "openRecentFinsum()"><img id="fileOpen" class="img " src="images/fileOpen.png">Open Recent FinSum</button></p>
+		</div><div class="clear"></div>
+	</div>
+	<div class="headerFS" id="createNewFs">
+		<div class="headerImgFS"><img id="newFS"  alt = "No image here"  src="images/newFS.png"></div>
+		<div class="headerTextFS"><p class="textFs">Create New Record</p>
+		<p class="headerTextboxFS"><button  class="btn btn-large btn-default buttonNewRecFs" ng-click = "createNewRecord()"><img id="createNewRec" class="img" src="images/createNewRec.png">Create New Record</button></p>
+		</div><div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+</div>
+
+<div id="opprvalues">
+	<div>
+		<img id="calenderIcon" class="img " src="images/calenderIcon.png">
+		<span style="font-family: 'GE Inspira';font-weight: 700;margin-left: 8px;">Oppt Number: </span> <span>111222</span>
+	</div>
+	<div>
+		<span>Oppt Name: </span> <span>Exelon TX Project...</span>
+	</div>
+	<div>
+		<span>Customer Name :  </span> <span>Exelon Corp</span>
+	</div>
+	<div>
+		<span>Site Name:  </span> <span>Colorado</span>
+	</div>
+</div><div class="clear"></div>
+
+   <div id="tableFS" ng-init="downloadCoreComp();">
+	 <px-data-table id="fmTable" table-data="{{getSManagerreportsByTfa}}"  filterable="true" striped>
+	<px-data-table-column name="OpptyNumber" label="Oppty Number" type="html"  sortable filterable/></px-data-table-column>
+	    <px-data-table-column id = "siva" name="FinSumRevision" label="FinSum Revision" type="html"  sortable filterable></px-data-table-column>
+	    <px-data-table-column name="FinSumStatus" label="FinSum Status" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="RecordDescription" label="Record Description" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="LastUpdatedDate" label="Last Updated Date" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="LastModifiedDate" label="Last Modified By" type="html" editable sortable filterable/></px-data-table-column>
+	</px-data-table> 
+	</div> 
+ 
+<px-modal modal-heading='Create New Record' class='px-modal-createNew-trigger' id="CreateNewRec">
+	<button class='btn btn--primary modal-trigger' id='cancelCreateNewRec' style='display: none;'></button>
+<div class="form-style-3" ng-init="fsReport();" >
+<form name="createNewRecForm" id ="createNewRecForm" novalidate>
+	<fieldset><legend>Create New Record</legend> 
+	<label for="field1"><span>Oprutunity Number <span class="required">*</span></span><input type="number" id="field1" ng-model="opprNumber" class="input-field" name="field1" value="" required /></label>
+	<div><p class="error createNewRecVal"   ng-show="submitted && createNewRecForm.field1.$error.required"> 
+  				<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Please enter Oprutunity Number.</p></div>
+	<label for="field2"><span>FinSum Revision </span><input type="text" ng-model="selectedRevision" class="input-field" name="field2" value="1" disabled /></label>
+	<label for="field3"><span>FinSum Status </span><input type="text" class="input-field" ng-model="selectedStatus" name="field3" value="Estimate" disabled/></label>
+	<label for="field4"><span>Reporting Currency<span class="required">*</span></span>
+	<select name="field4" class="select-field"  ng-model="selectedCurrency" ng-options="rep.reportCurName as rep.reportCurName for rep in fsReportCurrencyArray" required>
+	<option></option>
+	</select>
+	
+	</label>
+	<div><p class="error createNewRecVal"   ng-show="submitted && createNewRecForm.field4.$error.required"> 
+  				<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Please enter Oprutunity Number.</p></div>
+	<label for="field6"><span>Record Description <span class="required">*</span></span><textarea name="field6" ng-model="enterDesc" class="textarea-field" required></textarea></label>
+	<div><p class="error createNewRecVal"   ng-show="submitted && createNewRecForm.field6.$error.required"> 
+  				<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Please enter Oprutunity Number.</p></div>
+	<div id="createNewRecButtons">
+		<button  class="btn btn-large btn-default createSubmit" ng-click="submitted=true;createNewRec(opprNumber,selectedRevision,selectedStatus,selectedCurrency,enterDesc)"><i class="fa fa-plus" aria-hidden="true"></i>Create New Record</button>
+		<button  class="btn btn-large btn-default cancelCreate" ng-click="cancelCreateNewRec()"><i class="fa fa-times-circle-o" aria-hidden="true"></i>Cancel</button>
+	</div>
+	</fieldset>
+</form>
+
+</div>
+	</px-modal>
+	
+
+</px-card>
+<script>
+	
+  function finSumFavTouchUpInside() {
+  console.log("finSumFavTouchUpInside");
+ // openFinsumBasedOnSelection();
+}
+
+function finSumVersionTouchUpInside(){
+ console.log("finSumVersionTouchUpInside!");
+  angular.element(document.getElementById('siva')).scope().openRecentFinsum();
+ 
+
+}
+	</script>

@@ -1,0 +1,570 @@
+
+<px-card header-text="">
+<!--------------------------------------------------------------------------- Cost Input Page start------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<div id ="costInputPage" ng-show="displayCostInputPage">
+	<div id="bredcumFS">
+		<p><a href = "" ng-click="backToFS();"><i class="fa fa-angle-left" aria-hidden="true"></i></a><span>Project Tracking</span></p>
+		<p>FinSum-Cost Input</p>
+		<div class="clear"></div>
+	</div>
+	<div id ="fsCostHeader" ng-init="fsStatus();fsReport();">
+		<div class="opprCostDivs">
+			<p>Oprutunity Number</p>
+			<p><i class="fa fa-star costStar"></i><span>111222</span></p>
+		</div>
+		<div class="opprCostDivs">
+			<p>FS Revision</p>
+			<p class="appendFlag" ng-disabled= "disabledCostFields"><i class="{{flagRevisionsColors}}" aria-hidden="true" ng-click="flagRevisions();"></i><span>111222</span></p>
+			<div class='flagsRevision' ng-show = "showHideflags">
+				<ul>
+					<li ng-click='revision1Click()'><i class='fa fa-flag flagColor1'  ></i> Revision 1</li>
+					<li ng-click='revision2Click()'><i class='fa fa-flag flagColor2'  ></i> Revision 2</li>
+					<li ng-click='revision3Click()'><i class='fa fa-flag flagColor3'  ></i> Revision 3</li>
+				 </ul>
+			</div>
+		</div>
+		<div class="opprCostDivs">
+			<p>FS Status</p>
+			<p><select name="fsStatus" class="fsStatus"  ng-model="selectedStatusCost" ng-disabled= "disabledCostFields"  ng-options="reg.statusName as reg.statusName for reg in fsStatusArray"></select></p>
+		</div>
+		<div class="opprCostDivs">
+			<p>Reporting Currency</p>
+			<p><select name="fsReportcur" class="fsReportcur"  ng-model="selectedCurrCost" ng-disabled= "disabledCostFields" ng-options="rep.reportCurName as rep.reportCurName for rep in fsReportCurrencyArray" ></select></p>
+		</div>
+		<div class="opprCostDivs" >
+			<p>Record Description</p>
+			<p><textarea class="recDesc" rows="2" cols="30" ng-disabled= "disabledCostFields"></textarea></p>
+		</div>
+		<div id="editSaveCancel">
+			<p><button  class="btn btn-large btn-default editButton" ng-click="editCost();"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</button></p>
+			<p><button  class="btn btn-large btn-default saveButton" ng-click=""><i class="fa fa-floppy-o" aria-hidden="true"></i>Save</button></p>
+			<!-- <p><button  class="btn btn-large btn-default cancelButton" ng-click=""><i class="fa fa-times-circle-o" aria-hidden="true"></i>Cancel</button></p> -->
+		</div>
+		
+		
+		<div class="clear"></div>
+	</div>
+	<div id="costborder">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="opprvalues">
+		<div>
+			<img id="calenderIcon" class="img " src="images/calenderIcon.png">
+			<span style="font-family: 'GE Inspira';font-weight: 700;margin-left: 8px;">Oppt Number: </span> <span>111222</span>
+		</div>
+		<div>
+			<span>Oppt Name: </span> <span>Exelon TX Project...</span>
+		</div>
+		<div>
+			<span>Customer Name :  </span> <span>Exelon Corp</span>
+		</div>
+		<div>
+			<span>Site Name:  </span> <span>Colorado</span>
+		</div><div class="clear"></div>
+	</div>
+</div>
+<!--------------------------------------------------------------------------- Cost Input Page End------------------------------------------------------------------------------------------------------------------------------------------------------>
+<!--------------------------------------------------------------------------- Price Input Page  start------------------------------------------------------------------------------------------------------------------------------------------------------>
+<div id ="priceInputPage" ng-show="displayPriceInputPage">
+	<div id="bredcumFS">
+		<p><a href = "" ng-click="backToFS();"><i class="fa fa-angle-left" aria-hidden="true"></i></a><span>Project Tracking</span></p>
+		<p>FinSum-Price Input</p>
+		<div class="clear"></div>
+	</div>
+	<div id ="fsCostHeader" ng-init="fsStatus();fsReport();">
+		<div class="opprDivs">
+			<p>Oprutunity Number</p>
+			<p><i class="fa fa-star costStar"></i><span>111222</span></p>
+		</div>
+		<div class="opprDivs">
+			<p>FS Revision</p>
+			<p><i class="fa fa-flag costFlag" aria-hidden="true"></i><span>111222</span></p>
+		</div>
+		<div class="opprDivs">
+			<p>FS Status</p>
+			<p><select name="fsStatus" class="fsStatus"  ng-model="selectedStatusPrice"  ng-options="reg.statusName as reg.statusName for reg in fsStatusArray" ></select></p>
+		</div>
+		<div class="opprDivs">
+			<p>Reporting Currency</p>
+			<p><select name="fsReportcur" class="fsReportcur"  ng-model="selectedCurrPrice"  ng-options="rep.reportCurName as rep.reportCurName for rep in fsReportCurrencyArray" ></select></p>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="costborder">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="opprvalues">
+		<div>
+			<img id="calenderIcon" class="img " src="images/calenderIcon.png">
+			<span style="font-family: 'GE Inspira';font-weight: 700;margin-left: 8px;">Oppt Number: </span> <span>111222</span>
+		</div>
+		<div>
+			<span>Oppt Name: </span> <span>Exelon TX Project...</span>
+		</div>
+		<div>
+			<span>Customer Name :  </span> <span>Exelon Corp</span>
+		</div>
+		<div>
+			<span>Site Name:  </span> <span>Colorado</span>
+		</div><div class="clear"></div>
+	</div>
+</div>
+<!----------------------------------------------------------------------------- Price Input Page  end------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<!--------------------------------------------------------------------------- Import Products Page start------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<div id ="costInputPage" ng-show="displayImportProductsPage">
+	<div id="bredcumFS">
+		<p><a href = "" ng-click="backToFS();"><i class="fa fa-angle-left" aria-hidden="true"></i></a><span>Project Tracking</span></p>
+		<p>FinSum-Import Products</p>
+		<div class="clear"></div>
+	</div>
+	<div id ="fsCostHeader" ng-init="fsStatus();fsReport();">
+		<div class="opprDivs">
+			<p>Oprutunity Number</p>
+			<p><i class="fa fa-star costStar"></i><span>111222</span></p>
+		</div>
+		<div class="opprDivs">
+			<p>FS Revision</p>
+			<p><i class="fa fa-flag costFlag" aria-hidden="true"></i><span>111222</span></p>
+		</div>
+		<div class="opprDivs">
+			<p>FS Status</p>
+			<p><select name="fsStatus" class="fsStatus"  ng-model="selectedStatusImpr"  ng-options="reg.statusName as reg.statusName for reg in fsStatusArray" ></select></p>
+		</div>
+		<div class="opprDivs">
+			<p>Reporting Currency</p>
+			<p><select name="fsReportcur" class="fsReportcur"  ng-model="selectedCurrImpr"  ng-options="rep.reportCurName as rep.reportCurName for rep in fsReportCurrencyArray" ></select></p>
+		</div>
+		<div class="opprDivs">
+			<p>Record Description</p>
+			<p><textarea class="recDesc" rows="2" cols="40"></textarea></p>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="costborder">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div class="clear"></div>
+	</div><div class="clear"></div>
+	
+</div>
+<!--------------------------------------------------------------------------- Import Products Page End------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<!--------------------------------------------------------------------------- Finsum SetFx Page start------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<div id ="costInputPage" ng-show="displaySetFxPage">
+	<div id="bredcumFS">
+		<p><a href = "" ng-click="backToFS();"><i class="fa fa-angle-left" aria-hidden="true"></i></a><span>Project Tracking</span></p>
+		<p>FinSum-Set FX</p>
+		<div class="clear"></div>
+	</div>
+	<div id ="fsCostHeader" ng-init="fsStatus();fsReport();">
+		<div class="opprDivs">
+			<p>Oprutunity Number</p>
+			<p><i class="fa fa-star costStar"></i><span>111222</span></p>
+		</div>
+		<div class="opprDivs">
+			<p>FS Revision</p>
+			<p><i class="fa fa-flag costFlag" aria-hidden="true"></i><span>9</span></p>
+		</div>
+		<div class="opprDivs">
+			<p>FS Status</p>
+			<p><span>AS BID</span></p>
+		</div>
+		<div class="opprDivs">
+			<p>Reporting Currency</p>
+			<p><span>USD</span></p>
+		</div>
+		<div class="opprDivs">
+			<p>Record Description</p>
+			<p><span>R2 Approved, Alstom ST .....</span></p>
+		</div>
+		
+		
+		<div class="clear"></div>
+	</div>
+	<div id="costborder">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="opprvalues">
+		<div>
+			<img id="calenderIcon" class="img " src="images/calenderIcon.png">
+			<span style="font-family: 'GE Inspira';font-weight: 700;margin-left: 8px;">Oppt Number: </span> <span>111222</span>
+		</div>
+		<div>
+			<span>Oppt Name: </span> <span>Exelon TX Project...</span>
+		</div>
+		<div>
+			<span>Customer Name :  </span> <span>Exelon Corp</span>
+		</div>
+		<div>
+			<span>Site Name:  </span> <span>Colorado</span>
+		</div><div class="clear"></div>
+	</div>
+</div>
+<!--------------------------------------------------------------------------- Finsum SetFx Page End------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<!--------------------------------------------------------------------------- Finsum Report Page start------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<div id ="costInputPage" ng-show="displayReportPage">
+	<div id="bredcumFS">
+		<p><a href = "" ng-click="backToFS();"><i class="fa fa-angle-left" aria-hidden="true"></i></a><span>Project Tracking</span></p>
+		<p>FinSum Report</p>
+		<div class="clear"></div>
+	</div>
+	<div id ="fsCostHeader" ng-init="fsStatus();fsReport();">
+		<div class="opprDivsReport">
+			<p>Date</p>
+			<p><span>03/27/2017</span></p>
+		</div>
+		<div class="opprDivsReport">
+			<p>FinSum ID</p>
+			<p><span>111222</span></p>
+		</div>
+		<div class="opprDivsReport">
+			<p>Revision Status</p>
+			<p><span>Draft</span></p>
+		</div>
+		<div class="opprDivsReport">
+			<p>Reporting Currency</p>
+			<p><span>USD</span></p>
+		</div>
+		<div class="opprDivsReport">
+			<p>Project Name</p>
+			<p><span>Project Tracker</span></p>
+		</div>
+		<div class="opprDivsReport">
+			<p>Customer</p>
+			<p><span>Customer Name</span></p>
+		</div>
+		
+		<div class="opprDivsReport">
+			<p>Configuration</p>
+			<p><span>Config</span></p>
+		</div>
+		<div class="opprDivsReport">
+			<p>Country</p>
+			<p><span>USA</span></p>
+		</div>
+		<div class="opprDivsReport">
+			<p>FX [Reporting / USD]</p>
+			<p><span>Customer Name</span></p>
+		</div>
+		<div class="opprDivsReport">
+			<p>SFDC ID</p>
+			<p><span>121212</span></p>
+		</div>
+		<div class="opprDivsReport">
+			<p>Equipment Scope</p>
+			<p><span>Equ Sco</span></p>
+		</div>
+		
+		
+		<div class="clear"></div>
+	</div>
+	<div id="costborder">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div class="clear"></div>
+	</div><div class="clear"></div>
+	
+	
+</div>
+<!--------------------------------------------------------------------------- Finsum report Page End------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<!--------------------------------------------------------------------------- Cost Detail Report Page start------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<div id ="costInputPage" ng-show="displayCostDetailReportPage">
+	<div id="bredcumFS">
+		<p><a href = "" ng-click="backToFS();"><i class="fa fa-angle-left" aria-hidden="true"></i></a><span>Project Tracking</span></p>
+		<p>FinSum-Cost Detail Report</p>
+		<div class="clear"></div>
+	</div>
+	<div id ="fsCostHeader" ng-init="fsStatus();fsReport();">
+		<div class="opprDivs">
+			<p>Oprutunity Number</p>
+			<p><i class="fa fa-star costStar"></i><span>111222</span></p>
+		</div>
+		<div class="opprDivs">
+			<p>FS Revision</p>
+			<p><i class="fa fa-flag costFlag" aria-hidden="true"></i><span>9</span></p>
+		</div>
+		<div class="opprDivs">
+			<p>FS Status</p>
+			<p><span>AS BID</span></p>
+		</div>
+		<div class="opprDivs">
+			<p>Reporting Currency</p>
+			<p><span>USD</span></p>
+		</div>
+		<div class="opprDivs">
+			<p>Record Description</p>
+			<p><span>R2 Approved, Alstom ST .....</span></p>
+		</div>
+		
+		
+		<div class="clear"></div>
+	</div>
+	<div id="costborder">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="opprvalues">
+		<div>
+			<img id="calenderIcon" class="img " src="images/calenderIcon.png">
+			<span style="font-family: 'GE Inspira';font-weight: 700;margin-left: 8px;">Oppt Number: </span> <span>111222</span>
+		</div>
+		<div>
+			<span>Oppt Name: </span> <span>Exelon TX Project...</span>
+		</div>
+		<div>
+			<span>Customer Name :  </span> <span>Exelon Corp</span>
+		</div>
+		<div>
+			<span>Site Name:  </span> <span>Colorado</span>
+		</div><div class="clear"></div>
+	</div>
+</div>
+<!--------------------------------------------------------------------------- Cost Detail Report Page End------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<!--------------------------------------------------------------------------- FinSum Export Page start------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<div id ="costInputPage" ng-show="displayExportPage">
+	<div id="bredcumFS">
+		<p><a href = "" ng-click="backToFS();"><i class="fa fa-angle-left" aria-hidden="true"></i></a><span>Project Tracking</span></p>
+		<p>FinSum Export</p>
+		<div class="clear"></div>
+	</div>
+	<div id ="fsCostHeader" ng-init="fsStatus();fsReport();">
+		<div class="opprDivsReport">
+			<p>Date</p>
+			<p><span>03/27/2017</span></p>
+		</div>
+		<div class="opprDivsReport">
+			<p>FinSum ID</p>
+			<p><span>111222</span></p>
+		</div>
+		<div class="opprDivsReport">
+			<p>Revision Status</p>
+			<p><span>Draft</span></p>
+		</div>
+		<div class="opprDivsReport">
+			<p>Reporting Currency</p>
+			<p><span>USD</span></p>
+		</div>
+		<div class="opprDivsReport">
+			<p>Project Name</p>
+			<p><span>Project Tracker</span></p>
+		</div>
+		<div class="opprDivsReport">
+			<p>Customer</p>
+			<p><span>Customer Name</span></p>
+		</div>
+		
+		<div class="opprDivsReport">
+			<p>Configuration</p>
+			<p><span>Config</span></p>
+		</div>
+		<div class="opprDivsReport">
+			<p>Country</p>
+			<p><span>USA</span></p>
+		</div>
+		<div class="opprDivsReport">
+			<p>FX [Reporting / USD]</p>
+			<p><span>Customer Name</span></p>
+		</div>
+		<div class="opprDivsReport">
+			<p>SFDC ID</p>
+			<p><span>121212</span></p>
+		</div>
+		<div class="opprDivsReport">
+			<p>Equipment Scope</p>
+			<p><span>Equ Sco</span></p>
+		</div>
+		
+		
+		<div class="clear"></div>
+	</div>
+	<div id="costborder">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div class="clear"></div>
+	</div><div class="clear"></div>
+	
+	
+</div>
+<!--------------------------------------------------------------------------- FinSum Export Page End------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<div id ="navFs">
+      <ul>
+        <li ng-class="btn_status == 1 ?'activenav':'inactivenav'" ng-click="costInput();btn_status = 1"><a href="" ng-class="btn_status == 1 ?'activenavAnchor':'inactiveAnchor'" ng-click="costInput();btn_status = 1">Cost Input</a></li>
+        <li ng-class="btn_status == 2 ?'activenav':'inactivenav'" ng-click="priceInput();btn_status = 2"><a href=""  ng-class="btn_status == 2 ?'activenavAnchor':'inactiveAnchor'" ng-click="costInput();btn_status = 2">Price Input</a></li>
+        <li ng-class="btn_status == 3 ?'activenav':'inactivenav'" ng-click="importProducts();btn_status = 3"><a href=""  ng-class="btn_status == 3 ?'activenavAnchor':'inactiveAnchor'" ng-click="costInput();btn_status = 3">Import Products</a></li>
+        <li ng-class="btn_status == 4 ?'activenav':'inactivenav'" ng-click="setFx();btn_status = 4"><a href=""  ng-class="btn_status == 4 ?'activenavAnchor':'inactiveAnchor'" ng-click="costInput();btn_status = 4">Set FX</a></li>
+        <li ng-class="btn_status == 5 ?'activenav':'inactivenav'" ng-click="finSumReport();btn_status = 5"><a href=""  ng-class="btn_status == 5 ?'activenavAnchor':'inactiveAnchor'" ng-click="costInput();btn_status = 5">Fin Sum Report</a></li>
+        <li ng-class="btn_status == 6 ?'activenav':'inactivenav'" ng-click="costDetailReport();btn_status = 6"><a href=""  ng-class="btn_status == 6 ?'activenavAnchor':'inactiveAnchor'" ng-click="costInput();btn_status = 6">Cost Detail Report</a></li>
+        <li ng-class="btn_status == 7 ?'activenav':'inactivenav'" ng-click="exportFS();btn_status = 7"><a href=""  ng-class="btn_status == 7 ?'activenavAnchor':'inactiveAnchor'" ng-click="costInput();btn_status = 7">Export</a></li>
+      </ul><div class="clear"></div>
+</div><div class="clear"></div>
+
+<!--------------------------------------------------------------------------- Cost Input table Page start------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<div id="tableFS" ng-init = "fsRevisionData();"  ng-show = "displayCostInputPage">
+	 <px-data-table id="fmTable" table-data="{{getSManagerreportsByTfa}}"  filterable="true" striped>
+		<px-data-table-column name="MFID" label="MF ID" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="FinSumTier1" label="FinSum Tier 1" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="FinSumTier2" label="FinSum Tier 2" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="FinSumTier3" label="FinSum Tier 3" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="FinSumTier4" label="FinSum Tier 4" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="MFDescription" label="MF Description" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="CostSource" label="Cost [Source]" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="CurrencySource" label="Currency [Source]" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="Source" label="Source" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="FXReporting" label="FX [Reporting/Source]" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="CostReporting" label="Cost [Reporting]" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="Currency" label="Currency [Reporting]" type="html" editable sortable filterable/></px-data-table-column>
+	</px-data-table> 
+	</div>
+<!--------------------------------------------------------------------------- Cost Input table Page End------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+
+<!--------------------------------------------------------------------------- price Input table Page start------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<div id="tableFS" ng-init = "fsRevisionData();"  ng-show = "displayPriceInputPage">
+	 <px-data-table id="fmTable" table-data="{{getSManagerreportsByTfa}}"  filterable="true" striped>
+		<px-data-table-column name="MFID" label="MF ID" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="FinSumTier1" label="FinSum Tier 1" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="FinSumTier2" label="FinSum Tier 2" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="FinSumTier3" label="FinSum Tier 3" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="FinSumTier4" label="FinSum Tier 4" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="MFDescription" label="MF Description" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="CostSource" label="Cost [Source]" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="CurrencySource" label="Currency [Source]" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="Source" label="Source" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="FXReporting" label="FX [Reporting/Source]" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="CostReporting" label="Cost [Reporting]" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="Currency" label="Currency [Reporting]" type="html" editable sortable filterable/></px-data-table-column>
+	</px-data-table> 
+	</div>
+<!--------------------------------------------------------------------------- price Input table Page End------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<!--------------------------------------------------------------------------- Import product table Page start------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<div id="tableFS" ng-init = "fsRevisionData();"  ng-show = "displayImportProductsPage">
+	 <px-data-table id="fmTable" table-data="{{getSManagerreportsByTfa}}"  filterable="true" striped>
+		<px-data-table-column name="MFID" label="MF ID" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="FinSumTier1" label="FinSum Tier 1" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="FinSumTier2" label="FinSum Tier 2" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="FinSumTier3" label="FinSum Tier 3" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="FinSumTier4" label="FinSum Tier 4" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="MFDescription" label="MF Description" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="CostSource" label="Cost [Source]" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="CurrencySource" label="Currency [Source]" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="Source" label="Source" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="FXReporting" label="FX [Reporting/Source]" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="CostReporting" label="Cost [Reporting]" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="Currency" label="Currency [Reporting]" type="html" editable sortable filterable/></px-data-table-column>
+	</px-data-table> 
+	</div>
+<!--------------------------------------------------------------------------- Import product table Page End------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<!--------------------------------------------------------------------------- SetFx table Page start------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<div id="tableFS" ng-init = "fsRevisionData();"  ng-show = "displaySetFxPage">
+	 <px-data-table id="fmTable" table-data="{{getSManagerreportsByTfa}}"  filterable="true" striped>
+		<px-data-table-column name="MFID" label="MF ID" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="FinSumTier1" label="FinSum Tier 1" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="FinSumTier2" label="FinSum Tier 2" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="FinSumTier3" label="FinSum Tier 3" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="FinSumTier4" label="FinSum Tier 4" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="MFDescription" label="MF Description" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="CostSource" label="Cost [Source]" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="CurrencySource" label="Currency [Source]" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="Source" label="Source" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="FXReporting" label="FX [Reporting/Source]" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="CostReporting" label="Cost [Reporting]" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="Currency" label="Currency [Reporting]" type="html" editable sortable filterable/></px-data-table-column>
+	</px-data-table> 
+	</div>
+<!--------------------------------------------------------------------------- SetFx table Page End------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<!--------------------------------------------------------------------------- finSum Report table Page start------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<div id="tableFS" ng-init = "fsRevisionData();"  ng-show = "displayReportPage">
+	 <px-data-table id="fmTable" table-data="{{getSManagerreportsByTfa}}"  filterable="true" striped>
+		<px-data-table-column name="MFID" label="MF ID" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="FinSumTier1" label="FinSum Tier 1" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="FinSumTier2" label="FinSum Tier 2" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="FinSumTier3" label="FinSum Tier 3" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="FinSumTier4" label="FinSum Tier 4" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="MFDescription" label="MF Description" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="CostSource" label="Cost [Source]" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="CurrencySource" label="Currency [Source]" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="Source" label="Source" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="FXReporting" label="FX [Reporting/Source]" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="CostReporting" label="Cost [Reporting]" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="Currency" label="Currency [Reporting]" type="html" editable sortable filterable/></px-data-table-column>
+	</px-data-table> 
+	</div>
+<!--------------------------------------------------------------------------- finSum Report table Page End------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<!--------------------------------------------------------------------------- Cost Detail Report table Page start------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<div id="tableFS" ng-init = "fsRevisionData();"  ng-show = "displayCostDetailReportPage">
+	 <px-data-table id="fmTable" table-data="{{getSManagerreportsByTfa}}"  filterable="true" striped>
+		<px-data-table-column name="MFID" label="MF ID" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="FinSumTier1" label="FinSum Tier 1" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="FinSumTier2" label="FinSum Tier 2" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="FinSumTier3" label="FinSum Tier 3" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="FinSumTier4" label="FinSum Tier 4" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="MFDescription" label="MF Description" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="CostSource" label="Cost [Source]" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="CurrencySource" label="Currency [Source]" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="Source" label="Source" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="FXReporting" label="FX [Reporting/Source]" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="CostReporting" label="Cost [Reporting]" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="Currency" label="Currency [Reporting]" type="html" editable sortable filterable/></px-data-table-column>
+	</px-data-table> 
+	</div>
+<!--------------------------------------------------------------------------- Cost Detail Report table Page End------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<!--------------------------------------------------------------------------- Export Report table Page start------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<div id="tableFS" ng-init = "fsRevisionData();"  ng-show = "displayExportPage">
+	 <px-data-table id="fmTable" table-data="{{getSManagerreportsByTfa}}"  filterable="true" striped>
+		<px-data-table-column name="MFID" label="MF ID" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="FinSumTier1" label="FinSum Tier 1" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="FinSumTier2" label="FinSum Tier 2" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="FinSumTier3" label="FinSum Tier 3" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="FinSumTier4" label="FinSum Tier 4" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="MFDescription" label="MF Description" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="CostSource" label="Cost [Source]" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="CurrencySource" label="Currency [Source]" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="Source" label="Source" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="FXReporting" label="FX [Reporting/Source]" type="html" editable sortable filterable/></px-data-table-column>
+	    <px-data-table-column name="CostReporting" label="Cost [Reporting]" type="html" editable sortable filterable></px-data-table-column>
+	    <px-data-table-column name="Currency" label="Currency [Reporting]" type="html" editable sortable filterable/></px-data-table-column>
+	</px-data-table> 
+	</div>
+<!--------------------------------------------------------------------------- Export Report table Page End------------------------------------------------------------------------------------------------------------------------------------------------------>
+</px-card>
